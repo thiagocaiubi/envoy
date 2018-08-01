@@ -17,15 +17,13 @@ services:
       - "8001:8001"
 
   ext-authz:
-    image: nginx:stable-alpine
+    image: daime/http-dump:latest
     networks:
       envoymesh:
         aliases:
           - ext-authz
     expose:
       - "80"
-    volumes:
-      - ./ext-authz/etc/nginx:/etc/nginx
 
   service1:
     build:
